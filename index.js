@@ -7,8 +7,10 @@ const multer = require('multer');
 const bodyParser = require('body-parser')
 const axios = require("axios");
 
-const token = process.env.bot_token
-const id = process.env.bot_id
+const data = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'data.json'), 'utf8'));
+
+const bot = new telegramBot(data.token, { polling: true });
+
 const address = 'https://www.google.com'
 
 const app = express();
